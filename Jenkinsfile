@@ -1,12 +1,14 @@
 #!/usr/bin/env groovy
 node {
+    checkout scm
     stage('Build') {
-        echo 'Building....'
+        sh 'source /build/build_vars && build'
     }
     stage('Test') {
-        echo 'Building....'
+        sh 'source /build/build_vars && test'
     }
     stage('Deploy') {
-        echo 'Deploying....'
+        tag
+        cleanup_images
     }
 }
