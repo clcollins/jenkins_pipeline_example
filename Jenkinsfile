@@ -1,14 +1,15 @@
 pipeline {
   agent any
   stages{
-    stage ('Build') {
+    stage ('Build Container Image') {
       steps {
         sh 'source /build/build_vars && build'
+        sh 'source /build/build_vars && test'
       }
     }
     stage('Test') {
       steps {
-        sh 'source /build/build_vars && test'
+        echo "test"
       }
     }
     stage('Deploy') {
