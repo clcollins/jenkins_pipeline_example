@@ -13,8 +13,8 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        tag
-        cleanup_images
+        echo 'tag'
+        echo 'cleanup_images'
       }
     }
   }
